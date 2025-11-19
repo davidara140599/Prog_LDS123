@@ -1,11 +1,11 @@
-// 1. Función que ejecuta el flujo
 async function ejecutarFlujo() {
-    const url = "https://prod-00.westeurope.logic.azure.com:443/workflows/XXXXXXXXXXXX/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sig=YYYYYYYYYYYY"; 
-    // Reemplaza la URL completa con la que te dio Power Automate
 
+    const url = "https://default1c0051dd45964b1a9849d060735057.69.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/280836cede964890b672ea6ac52901f1/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=NMNk4omolwOglfQWRqQeIJpInjxrGJU2yGmxhTZylko";
+
+    // Aquí lees los valores de tus inputs
     const datos = {
-        nombre: "Juan",
-        accion: "prueba desde JS"
+        nombre: document.getElementById("nombre").value,
+        correo: document.getElementById("apellidos").value
     };
 
     try {
@@ -25,8 +25,7 @@ async function ejecutarFlujo() {
     }
 }
 
-
-// 2. Evento del botón que ejecuta la función
 document.getElementById("enviarBton").addEventListener("click", () => {
     ejecutarFlujo();
 });
+
